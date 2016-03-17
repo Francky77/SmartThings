@@ -41,7 +41,7 @@ metadata {
 	command "pc"
 	command "net"
 	command "aux"
-    command "fm"
+    	command "fm"
 	command "z2on"
 	command "z2off"
 	command "makeNetworkId", ["string","string"]
@@ -52,13 +52,13 @@ simulator {
 	}
 
 tiles {
-		standardTile("switch", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+	standardTile("switch", "device.switch", width: 1, height: 1, canChangeIcon: true) {
         	state "on", label: '${name}', action: "switch.off", icon: "st.switches.switch.on", backgroundColor: "#79b821"
         	state "off", label: '${name}', action: "switch.on", icon: "st.switches.switch.off", backgroundColor: "#ffffff"
-   			}
+   		}
         standardTile("mute", "device.switch", inactiveLabel: false, decoration: "flat") {
-			state "unmuted", label:"mute", action:"mute", icon:"st.custom.sonos.unmuted", backgroundColor:"#ffffff", nextState:"muted"
-			state "muted", label:"unmute", action:"unmute", icon:"st.custom.sonos.muted", backgroundColor:"#ffffff", nextState:"unmuted"
+		state "unmuted", label:"mute", action:"mute", icon:"st.custom.sonos.unmuted", backgroundColor:"#ffffff", nextState:"muted"
+		state "muted", label:"unmute", action:"unmute", icon:"st.custom.sonos.muted", backgroundColor:"#ffffff", nextState:"unmuted"
         	}
         standardTile("cable", "device.switch", decoration: "flat"){
         	state "cable", label: 'cable', action: "cable", icon:"st.Electronics.electronics3"
@@ -78,12 +78,12 @@ tiles {
        	standardTile("fm", "device.switch", decoration: "flat"){
         	state "fm", label: 'fm', action: "fm", icon:"st.Electronics.electronics6"
         	}
-		controlTile("levelSliderControl", "device.level", "slider", height: 1, width: 2, inactiveLabel: false, range:"(0..70)") {
-			state "level", label:'${currentValue}', action:"setLevel", backgroundColor:"#ffffff"
-			}
+	controlTile("levelSliderControl", "device.level", "slider", height: 1, width: 2, inactiveLabel: false, range:"(0..70)") {
+		state "level", label:'${currentValue}', action:"setLevel", backgroundColor:"#ffffff"
+		}
         standardTile("zone2", "device.switch", inactiveLabel: false, decoration: "flat") {
-			state "off", label:"Enable Zone 2", action:"z2on", icon:"st.custom.sonos.unmuted", backgroundColor:"#ffffff", nextState:"on"
-			state "on", label:"Disable Zone 2", action:"z2off", icon:"st.custom.sonos.muted", backgroundColor:"#ffffff", nextState:"off"
+		state "off", label:"Enable Zone 2", action:"z2on", icon:"st.custom.sonos.unmuted", backgroundColor:"#ffffff", nextState:"on"
+		state "on", label:"Disable Zone 2", action:"z2off", icon:"st.custom.sonos.muted", backgroundColor:"#ffffff", nextState:"off"
         	}
         /*   Commenting this out as it doesn't work yet     
         valueTile("currentSong", "device.trackDescription", inactiveLabel: true, height:1, width:3, decoration: "flat") {
