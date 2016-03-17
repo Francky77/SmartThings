@@ -76,7 +76,7 @@ tiles {
         	state "aux", label: 'aux', action: "aux", icon:"st.Electronics.electronics6"
         	}
        	standardTile("fm", "device.switch", decoration: "flat"){
-        	state "fm", label: 'fm', action: "fm", icon:"st.Electronics.electronics6"
+        	state "fm", label: 'fm', action: "fm", icon:"st.Electronics.electronics10"
         	}
 	controlTile("levelSliderControl", "device.level", "slider", height: 1, width: 2, inactiveLabel: false, range:"(0..70)") {
 		state "level", label:'${currentValue}', action:"setLevel", backgroundColor:"#ffffff"
