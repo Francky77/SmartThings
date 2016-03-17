@@ -74,6 +74,9 @@ tiles {
         standardTile("aux", "device.switch", decoration: "flat"){
         	state "aux", label: 'aux', action: "aux", icon:"st.Electronics.electronics6"
         	}
+       	standardTile("fm", "device.switch", decoration: "flat"){
+        	state "fm", label: 'fm', action: "fm", icon:"st.Electronics.electronics6"
+        	}
 	controlTile("levelSliderControl", "device.level", "slider", height: 1, width: 2, inactiveLabel: false, range:"(0..70)") {
 		state "level", label:'${currentValue}', action:"setLevel", backgroundColor:"#ffffff"
 		}
@@ -195,26 +198,34 @@ def net() {
 	return ha
     return ha2
 	}
-
+	
 def aux() {
 	log.debug "Setting input to AUX"
 	def msg = getEiscpMessage("SLI03")
 	def ha = new physicalgraph.device.HubAction(msg,physicalgraph.device.Protocol.LAN)
 	return ha
 	}
+	
+def fm() {
+	log.debug "Setting input to FM"
+	def msg = getEiscpMessage("SLI26")
+	def ha = new physicalgraph.device.HubAction(msg,physicalgraph.device.Protocol.LAN)
+	return ha
+	}
+	
 def z2on() {
 	log.debug "Turning on Zone 2"
 	def msg = getEiscpMessage("ZPW01")
 	def ha = new physicalgraph.device.HubAction(msg,physicalgraph.device.Protocol.LAN)
 	return ha
 	}
+	
 def z2off() {
 	log.debug "Turning off Zone 2"
 	def msg = getEiscpMessage("ZPW00")
 	def ha = new physicalgraph.device.HubAction(msg,physicalgraph.device.Protocol.LAN)
 	return ha
 	}
-
 
 def getEiscpMessage(command){
 	def sb = StringBuilder.newInstance()
